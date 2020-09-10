@@ -33,7 +33,7 @@ alias ll='ls -alGpF' # Mac OSX specific
 
 alias t="tig status"
 alias tigs="tig status" #old habits don't die
-alias d='git diff' 
+alias d='git diff'
 
 alias vi='vim'
 alias vim='nvim'
@@ -97,12 +97,12 @@ setopt append_history
 setopt extended_history
 setopt hist_expire_dups_first
 # ignore duplication command history list
-setopt hist_ignore_dups 
+setopt hist_ignore_dups
 setopt hist_ignore_space
 setopt hist_verify
 setopt inc_append_history
 # share command history data
-setopt share_history 
+setopt share_history
 
 # =============
 #    PROMPT
@@ -199,7 +199,7 @@ bindkey -e
 
 # [Ctrl-r] - Search backward incrementally for a specified string. The string
 # may begin with ^ to anchor the search to the beginning of the line.
-bindkey '^r' history-incremental-search-backward      
+bindkey '^r' history-incremental-search-backward
 
 if [[ "${terminfo[kpp]}" != "" ]]; then
   bindkey "${terminfo[kpp]}" up-line-or-history       # [PageUp] - Up a line of history
@@ -271,7 +271,7 @@ export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 autoload -U +X bashcompinit && bashcompinit
 
 
-if [ $commands[kubectl] ]; then 
+if [ $commands[kubectl] ]; then
   source <(kubectl completion zsh)
   alias k=kubectl
   complete -F __start_kubectl k
@@ -289,8 +289,8 @@ fi
 complete -o nospace -C /usr/local/bin/vault vault
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/panos/.sdkman"
-[[ -s "/Users/panos/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/panos/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 
-export PATH=/Users/panos/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
